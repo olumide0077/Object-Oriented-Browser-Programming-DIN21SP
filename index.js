@@ -196,12 +196,12 @@ async function gameLoop() {
   switch(response.value) {
     case 'look':
       console.log('you have chosen to look around');
-      Player1.lookAround();
+      this.before();
       break;
     
     case 'goToRoom':
       console.log('you have chosen to move around');
-      Player1.moveToRoom();
+      this.after();
       break;
     
     case 'attack':
@@ -225,8 +225,8 @@ async function move(prev, nxt) {
   // this.after = nxt;
   // Example set of UI options for the user to select
   const initialChoices = [
-      { title: 'Look Around', value: 'look' },
-      { title: 'Go to Room', value: 'goToRoom' },
+      { title: this.before, value: 'look' },
+      { title: this.after, value: 'goToRoom' },
       
   ];
 
@@ -258,7 +258,7 @@ async function move(prev, nxt) {
   }
   
   // if(continueGame) {
-  //   gameLoop();
+     move();
   // }    
 }
 
